@@ -3,51 +3,316 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>姓名 | Academic Homepage</title>
+  <meta name="description" content="司黎明，北京理工大学教授、博士生导师。研究方向包括智能电磁控制、天线理论与技术、太赫兹技术与应用。">
+  <meta name="theme-color" content="#174d41">
+  <title>司黎明 Liming Si | 北京理工大学</title>
   <style>
-    body {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 0 20px;
-      font-family: Georgia, "Microsoft YaHei", serif;
-      line-height: 1.8;
-      color: #333;
-    }
-    a { color: #1765a3; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    nav { border-bottom: 1px solid #ddd; padding-bottom: 15px; }
-    h2 { border-bottom: 1px solid #ddd; margin-top: 35px; }
+    :root { --green:#174d41; --accent:#2e7562; --ink:#24332d; --muted:#66736c; --line:#dde5df; --paper:#f6f8f5; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; scroll-padding-top:94px; }
+    body { margin:0; color:var(--ink); background:var(--paper); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",Arial,sans-serif; font-size:15px; line-height:1.9; }
+    a { color:var(--accent); text-decoration:none; text-underline-offset:4px; overflow-wrap:anywhere; }
+    a:hover { text-decoration:underline; }
+    a:focus-visible, summary:focus-visible { outline:2px solid var(--accent); outline-offset:4px; }
+    .skip { position:absolute; top:-80px; left:20px; padding:7px 14px; background:white; z-index:5; }
+    .skip:focus { top:8px; }
+    .topbar { background:var(--green); color:white; }
+    .topbar-inner { max-width:1160px; margin:auto; padding:13px 32px; display:flex; justify-content:space-between; gap:20px; align-items:center; }
+    .school { font-size:15px; letter-spacing:1px; font-weight:600; }
+    .school small { display:block; font-size:10px; font-weight:400; letter-spacing:1px; opacity:.75; line-height:1.4; }
+    .topbar a { color:#e7f0ea; font-size:12px; }
+    .page { max-width:1160px; margin:auto; padding:42px 32px 0; }
+    .hero { background:white; border:1px solid var(--line); border-top:4px solid var(--green); display:grid; grid-template-columns:172px minmax(0,1fr); gap:36px; padding:34px 38px; }
+    .portrait { position:relative; width:172px; height:218px; background:#e8efea; display:grid; place-items:center; overflow:hidden; }
+    .portrait span { color:#789187; font-size:38px; font-family:serif; letter-spacing:4px; }
+    .portrait img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:50% 20%; }
+    .eyebrow { font-size:10px; letter-spacing:2px; color:var(--accent); margin:0 0 5px; }
+    h1 { font-size:36px; line-height:1.3; margin:0 0 9px; font-weight:650; letter-spacing:2px; }
+    h1 small { font-size:18px; font-weight:400; color:var(--muted); letter-spacing:.4px; margin-left:14px; white-space:nowrap; }
+    .role { margin:0 0 8px; color:var(--green); font-size:16px; }
+    .affiliation { font-size:14px; margin:0 0 17px; }
+    .contact { display:flex; flex-wrap:wrap; gap:5px 26px; font-size:12px; color:var(--muted); }
+    .contact p { margin:0; }
+    .subjects { margin:12px 0 0; font-size:12px; color:var(--muted); }
+    .layout { display:grid; grid-template-columns:172px minmax(0,1fr); gap:36px; padding:32px 0 0; }
+    .side { align-self:start; position:sticky; top:24px; padding:7px 0; }
+    .side-label { margin:0 0 12px; font-size:10px; color:var(--muted); letter-spacing:2px; }
+    .side a { display:block; color:#4b5c52; padding:7px 14px; font-size:13px; border-left:2px solid var(--line); }
+    .side a:hover { border-left-color:var(--green); background:#edf2ed; text-decoration:none; }
+    main { min-width:0; background:white; border:1px solid var(--line); padding:5px 36px 16px; }
+    section { margin:0 0 36px; scroll-margin-top:24px; }
+    h2 { font-size:21px; font-weight:600; margin:27px 0 18px; padding-bottom:11px; border-bottom:1px solid var(--line); letter-spacing:1px; }
+    h2::before { content:""; display:inline-block; width:4px; height:17px; background:var(--accent); margin-right:12px; vertical-align:-1px; }
+    h3 { font-size:16px; margin:22px 0 12px; font-weight:600; }
+    p { margin:0 0 15px; }
+    ul,ol { padding-left:25px; margin:0; }
+    li { margin:0 0 12px; padding-left:4px; overflow-wrap:anywhere; }
+    li::marker { color:var(--accent); font-weight:600; }
+    .research-list { list-style:none; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+    .research-list li { background:#f4f7f3; border:1px solid #e4ebe3; padding:15px 17px; font-size:13px; margin:0; }
+    .research-list strong { display:block; font-size:15px; color:var(--green); margin-bottom:6px; }
+    .papers { font-size:13px; line-height:1.85; }
+    .papers li { padding-bottom:14px; margin-bottom:16px; border-bottom:1px solid #edf0ec; }
+    .papers li:last-child { border-bottom:0; }
+    details { border-top:1px solid var(--line); padding-top:12px; margin-top:12px; }
+    summary { cursor:pointer; font-size:13px; font-weight:600; color:var(--accent); padding:5px 0 12px; }
+    details[open] summary { margin-bottom:10px; }
+    .compact-list { font-size:13px; }
+    .note { border-left:3px solid #93b7a6; background:#f4f7f3; padding:16px 18px; font-size:13px; }
+    .funding p { font-size:12px; color:var(--muted); }
+    .source { font-size:11px; color:var(--muted); border-top:1px solid var(--line); padding:18px 0 0; }
+    footer { font-size:11px; color:var(--muted); padding:22px 0 32px; text-align:center; }
+    @media(max-width:800px) { .page {padding:25px 22px 0;} .hero {padding:27px;gap:25px;grid-template-columns:145px minmax(0,1fr);} .portrait {width:145px;height:190px;} .layout {grid-template-columns:145px minmax(0,1fr);gap:25px;} main {padding:4px 23px 12px;} h1 {font-size:31px;} h1 small {font-size:16px;} }
+    @media(max-width:620px) { html {scroll-padding-top:18px;} .topbar-inner {padding:12px 18px;} .school {font-size:13px;} .topbar a {font-size:11px;} .page {padding:18px 14px 0;} .hero {grid-template-columns:94px minmax(0,1fr);gap:18px;padding:23px 18px;} .portrait {width:94px;height:123px;} h1 {font-size:28px;} h1 small {display:block;font-size:15px;margin:6px 0 0;} .role {font-size:13px;} .affiliation {font-size:12px;margin-bottom:11px;} .contact {grid-column:1 / -1;gap:4px;display:block;} .hero-info {min-width:0;} .eyebrow {font-size:8px;letter-spacing:1px;} .contact p {margin-bottom:3px;} .subjects {font-size:11px;} .layout {display:block;padding-top:17px;} .side {position:static;display:flex;gap:5px;flex-wrap:wrap;padding:0 0 16px;} .side-label {display:none;} .side a {border:1px solid var(--line);padding:4px 10px;font-size:12px;background:white;} main {padding:2px 19px 10px;} body {font-size:14px;} h2 {font-size:20px;margin-top:24px;} .research-list {grid-template-columns:1fr;} .papers {font-size:12px;} li {padding-left:1px;} }
+    @media(prefers-reduced-motion:reduce) {html {scroll-behavior:auto;}}
+    @media print { .topbar,.side,footer {display:none;} body {background:white;font-size:10pt;} .page {padding:0;} .hero {break-inside:avoid;} .layout {display:block;} main {border:0;padding:0;} h2 {break-after:avoid;} li {break-inside:avoid;} details:not([open]) {display:none;} }
   </style>
 </head>
 <body>
-  <nav>
-    <a href="#about">Home</a> ·
-    <a href="#publications">Publications</a> ·
-    <a href="#awards">Awards</a> ·
-    <a href="#services">Services</a>
-  </nav>
+  <a class="skip" href="#main">跳转到正文</a>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="school">北京理工大学<small>BEIJING INSTITUTE OF TECHNOLOGY</small></div>
+      <a href="https://ice.bit.edu.cn/" target="_blank" rel="noopener noreferrer">集成电路与电子学院 ↗</a>
+    </div>
+  </header>
 
-  <h1>Your Name（中文姓名）</h1>
-  <p>职称 / 学位<br>院系名称 · 学校名称</p>
-  <p>Email: <a href="mailto:yourname@example.com">yourname@example.com</a></p>
+  <div class="page">
+    <header class="hero" id="top">
+      <div class="portrait">
+        <span aria-hidden="true">司</span>
 
-  <h2 id="about">Biography</h2>
-  <p>在这里填写个人简介、教育经历和研究方向。</p>
+      </div>
+      <div class="hero-info">
+        <p class="eyebrow">ACADEMIC PROFILE</p>
+        <h1>司黎明<small>Liming Si</small></h1>
+        <p class="role">教授 · 博士生导师 · 副院长</p>
+        <p class="affiliation">北京理工大学 · 集成电路与电子学院</p>
+        <div class="contact">
+          <p>电子邮件：<a href="mailto:lms@bit.edu.cn">lms@bit.edu.cn</a></p>
+          <p>办公电话：<a href="tel:13810113982">13810113982</a></p>
+          <p>办公地点：中关村校区 &amp; 良乡校区</p>
+        </div>
+        <p class="subjects">所在学科：电子科学与技术 / 集成电路科学与工程</p>
+      </div>
+    </header>
 
-  <h2>Recent News</h2>
-  <ul>
-    <li>[年份.月份] 在这里添加最新动态。</li>
-  </ul>
+    <div class="layout">
+      <nav class="side" aria-label="页面导航">
+        <p class="side-label">CONTENTS / 页面导航</p>
+        <a href="#about">个人简介</a>
+        <a href="#research">研究方向</a>
+        <a href="#publications">代表性论著</a>
+        <a href="#projects">主持课题</a>
+        <a href="#awards">荣誉奖励</a>
+        <a href="#services">学术兼职</a>
+        <a href="#recruitment">招生与招聘</a>
+      </nav>
 
-  <h2 id="publications">Publications</h2>
-  <ol>
-    <li>作者列表. “论文标题.” <i>期刊或会议名称</i>, 年份.</li>
-  </ol>
+      <main id="main">
 
-  <h2 id="awards">Awards</h2>
-  <ul><li>年份 — 奖项名称</li></ul>
+      <section id="about" aria-labelledby="about-title">
+        <h2 id="about-title">个人简介</h2>
+        <p>司黎明，北京理工大学教授、博士生导师、集成电路与电子学院副院长。主持国家自然科学基金、基础加强、北京市自然科学基金、973、863、173、民用航天等科研项目30余项。</p>
+        <p>在国内外学术刊物上发表SCI/EI收录学术论文160余篇，申请和授权专利20余项，受邀作大会报告10余次。担任中国通信学会智能超表面专业委员会副主任委员、中国计量测试学会电子计量专业委员会副主任委员、全国无线电计量技术委员会委员、中国超材料学会理事、全国人工智能计量协同创新联盟理事、智能超表面技术联盟理事、国家自然科学基金评审专家、教育部学科评议组成员、北京市科委科技专家等。</p>
+        <p>担任IEEE MTT-S国际微波研讨会系列、电磁学进展研究研讨会（PIERS）、国际微波与毫米波技术会议（ICMMT）、射频电子测量国际会议（CRFM）、中国微波周、全国天线年会、全国超材料大会、世界光子大会太赫兹技术及应用专题等多个学术大会学术委员会委员、程序委员会委员或分会主席。现为IEEE高级会员、中国电子学会高级会员、中国通信学会高级会员。担任北京理工大学本科专业责任教授、工程硕博士学位评定分委会委员，获北京高校优质本科教材课件、北京理工大学教学名师、迪文优秀教师奖、微波信息奖教金、“我爱我师”最受学生喜爱的教师、教书育人类表彰等。</p>
+      </section>
 
-  <h2 id="services">Academic Services</h2>
-  <ul><li>期刊审稿、会议服务等。</li></ul>
+      <section id="research" aria-labelledby="research-title">
+        <h2 id="research-title">研究方向</h2>
+        <ul class="research-list">
+          <li><strong>智能电磁控制</strong>电磁波调控(幅度/相位/极化/轨道角动量)、智能超表面、表面等离激子；</li>
+          <li><strong>天线理论与技术</strong>超宽带、可调谐、MIMO阵列、宽角度、双/多/全极化、小型化、低成本；</li>
+          <li><strong>太赫兹技术与应用</strong>太赫兹前端阵列、集成芯片、态势感知、微波/太赫兹/红外/激光多模复合技术；</li>
+          <li><strong>人工智能与优化算法</strong>人工智能/优化算法+①②③。</li>
+        </ul>
+      </section>
+
+      <section id="publications" aria-labelledby="publications-title">
+        <h2 id="publications-title">代表性论著</h2>
+        <!-- 每篇论文放在独立 li 中；书目信息按学院原网页保留。 -->
+        <ol class="papers">
+          <li>Corresponding Author, “Speech-Controlled Reconfigurable Intelligent Metasurface for Real-Time Wireless Power Transfer and Communication,” Research, DOI: <a href="https://doi.org/10.34133/research.0831" target="_blank" rel="noopener noreferrer">10.34133/research.0831</a>, (2025).</li>
+          <li>Corresponding Author, “Dynamic Manipulation of High-Order Poincaré Sphere Polarization States via Transmissive Space-Time-Coding Metasurface,” Photonics Research, DOI:  <a href="https://doi.org/10.1364/PRJ.565657" target="_blank" rel="noopener noreferrer">10.1364/PRJ.565657</a>, (2025).</li>
+          <li>Corresponding Author, “Dynamic Generation of Multiplexed Vortex Beams by a Space-time-coding Metasurface,” Photonics Research, DOI: <a href="https://doi.org/10.1364/PRJ.543744" target="_blank" rel="noopener noreferrer">10.1364/PRJ.543744</a>, (2025).</li>
+          <li>Corresponding Author, “Advanced Physical Layer Metasurface-Empowered Cryptography with Robustness, High Capacity, and Enhanced Security,” Laser &amp; Photonics Reviews, DOI: <a href="https://doi.org/10.1002/lpor.202402046" target="_blank" rel="noopener noreferrer">10.1002/lpor.202402046</a>, (2025).</li>
+          <li>Corresponding Author, “Multi-Wavelength Metasurface Empowered Cryptography for Heightened Security and Improved Fidelity,” Laser &amp; Photonics Reviews, DOI: <a href="https://doi.org/10.1002/lpor.202301014" target="_blank" rel="noopener noreferrer">10.1002/lpor.202301014</a>, (2024).</li>
+          <li>Corresponding Author, “Crosstalk-Free Spin-Selective Metasurface for Full-Space Wavefront Manipulation with Nearly 100% Efficiency,” Advanced Optical Materials, DOI: <a href="https://doi.org/10.1002/ADOM.202501041" target="_blank" rel="noopener noreferrer">10.1002/ADOM.202501041</a>, (2025).</li>
+          <li>Corresponding Author, “High‐Efficiency Dual‐Band Metasurface with Independent Multifold Geometric Phases,” Advanced Optical Materials, DOI: <a href="https://doi.org/10.1002/adom.202300347" target="_blank" rel="noopener noreferrer">10.1002/adom.202300347</a>, (2023).</li>
+          <li>Corresponding Author, “High-Efficiency Ultrathin Dual-Wavelength Pancharatnam–Berry Metasurfaces with Complete Independent Phase Control,” Advanced Optical Materials, DOI: <a href="https://doi.org/10.1002/adom.201900594" target="_blank" rel="noopener noreferrer">10.1002/adom.201900594</a>, (2019).</li>
+          <li>Corresponding Author, “Multichannel OAM Encrypted Holography Based on Complex-Amplitude Janus Metasurface,” IEEE Transactions on Antennas and Propagation, DOI: <a href="https://doi.org/10.1109/TAP.2026.3738109" target="_blank" rel="noopener noreferrer">10.1109/TAP.2026.3738109</a>, (2026).</li>
+          <li>Corresponding Author, “Hybrid Neural Network-Driven Inverse Design of Metasurface for Ultra-Broadband RCS Reduction,” IEEE Transactions on Antennas and Propagation, DOI: <a href="https://doi.org/10.1109/TAP.2025.3621515" target="_blank" rel="noopener noreferrer">10.1109/TAP.2025.3621515</a>, (2025).</li>
+        </ol>
+        <details>
+          <summary>展开其余代表性论文（第11—28项）</summary>
+          <ol class="papers" start="11">
+          <li>First Author, “Complex-Amplitude Janus Metasurface for Asymmetric 3-D Holography,” IEEE Transactions on Antennas and Propagation, DOI: <a href="https://doi.org/10.1109/TAP.2025.3637584" target="_blank" rel="noopener noreferrer">10.1109/TAP.2025.3637584</a>, (2026).</li>
+          <li>Corresponding Author, “Quasi-BIC-enhanced Integrated Sensing Dielectric Metasurfaces for Molecular Fingerprint Retrieval and Chiral Detection,” Nanoscale, DOI: <a href="https://doi.org/10.1039/D4NR04665J" target="_blank" rel="noopener noreferrer">10.1039/D4NR04665J</a>, (2025).</li>
+          <li>Corresponding Author, “An Optically Transparent Rectifying Metasurface for 2.4/5.8 GHz Dual-band RF Energy Harvesting,” Applied Physics Letters, DOI: <a href="https://doi.org/10.1063/5.0242451" target="_blank" rel="noopener noreferrer">10.1063/5.0242451</a>, (2025).</li>
+          <li>Corresponding Author, “Advances in Artificial Intelligence for Artificial Metamaterials,” APL Materials, DOI: <a href="https://doi.org/10.1063/5.0247369" target="_blank" rel="noopener noreferrer">10.1063/5.0247369</a>, (2024).</li>
+          <li>Corresponding Author, “Transmission–reflection-integrated metasurface for full-space, six-channel, and polarization-multiplexed holography,” Optics Express, DOI: <a href="https://doi.org/10.1364/OE.581085" target="_blank" rel="noopener noreferrer">10.1364/OE.581085</a>, (2025).</li>
+          <li>Corresponding Author, “Highly Efficient Airy Beam Generator with High Polarization Purity by a Receiving-transmitting Metasurface,” Optics Express, DOI: <a href="https://doi.org/10.1364/OE.532157" target="_blank" rel="noopener noreferrer">10.1364/OE.532157</a>, (2025).</li>
+          <li>Corresponding Author, “Rapid Customized Design of a Conformal Optical Transparent Metamaterial Absorber Based on the Circuit Analog Optimization Method,” Optics Express, DOI: <a href="https://doi.org/10.1364/oe.452694" target="_blank" rel="noopener noreferrer">10.1364/oe.452694</a>, (2022).</li>
+          <li>Corresponding Author, “Phase-to-Pattern Inverse Design for a Fast Realization of a Functional Metasurface by Combining a Deep Neural Network and a Genetic Algorithm,” Optics Express, DOI: <a href="https://doi.org/10.1364/OE.478084" target="_blank" rel="noopener noreferrer">10.1364/OE.478084</a>, (2022).</li>
+          <li>Corresponding Author, “Study of Symmetries of Chiral Metasurfaces for Azimuth-Rotation-Independent Cross Polarization Conversion,” Optics Express, DOI: <a href="https://doi.org/10.1364/OE.452773" target="_blank" rel="noopener noreferrer">10.1364/OE.452773</a>, (2022).</li>
+          <li>First Author, “Broadband Extremely Close-Spaced 5G MIMO Antenna with Mutual Coupling Reduction Using Metamaterial-Inspired Superstrate,” Optics Express, DOI: <a href="https://doi.org/10.1364/OE.27.003472" target="_blank" rel="noopener noreferrer">10.1364/OE.27.003472</a>, (2019).</li>
+          <li>通讯作者，“双频太赫兹圆极化吸波与异常反射手性超表面”，电子学报， DOI: <a href="https://doi.org/10.12263/DZXB.20221118" target="_blank" rel="noopener noreferrer">10.12263/DZXB.20221118</a>（2023）. (邀请论文，中文核心期刊)</li>
+          <li>第一作者，“视觉图像驱动的多模型协同超表面逆设计方法”，科技导报， DOI: <a href="https://doi.org/10.3981/j.issn.1000-7857.2026.01.00116" target="_blank" rel="noopener noreferrer">10.3981/j.issn.1000-7857.2026.01.00116</a>,（2026）. (邀请论文，中文核心期刊)</li>
+          <li>第一作者，“涡旋波通信技术：优势与挑战”，科技导报， DOI: <a href="https://doi.org/10.3981/j.issn.1000-7857.2026.02.00019" target="_blank" rel="noopener noreferrer">10.3981/j.issn.1000-7857.2026.02.00019</a>,（2026）. (邀请论文，中文核心期刊)</li>
+          <li>第一作者，“2020年太赫兹科学与技术热点回眸”，科技导报， DOI: <a href="https://doi.org/10.3981/j.issn.1000-7857.2021.01.017" target="_blank" rel="noopener noreferrer">10.3981/j.issn.1000-7857.2021.01.017</a>,（2025）. (邀请论文，中文核心期刊)</li>
+          <li>第一作者，“涡旋波超表面研究现状与应用进展”，科技导报，DOI: <a href="https://doi.org/10.3981/j.issn.1000-7857.2024.02.00240" target="_blank" rel="noopener noreferrer">10.3981/j.issn.1000-7857.2024.02.00240</a>，(2024). (邀请论文，中文核心期刊)</li>
+          <li>第一作者，“机器学习辅助太赫兹涡旋波超表面快速设计方法”，无线电通信技术，DOI: <a href="https://doi.org/10.3969/j.issn.1003-3114.2024.01.015" target="_blank" rel="noopener noreferrer">10.3969/j.issn.1003-3114.2024.01.015</a>，(2024). (邀请论文，中文核心期刊)</li>
+          <li>第一作者，“电磁波极化转换虚拟仿真实验教学探究”，实验室研究与探索， DOI: <a href="https://doi.org/10.19927/j.cnki.syyt.2024.04.022" target="_blank" rel="noopener noreferrer">10.19927/j.cnki.syyt.2024.04.022</a>,（2024）. (中文核心期刊)</li>
+          <li>第一作者，“基于CST的涡旋电磁波虚拟仿真实验教学案例探讨”, 实验技术与管理， DOI: <a href="https://doi.org/10.16791/j.cnki.sjg.2023.06.031" target="_blank" rel="noopener noreferrer">10.16791/j.cnki.sjg.2023.06.031</a>,（2023）. (中文核心期刊)</li>
+          </ol>
+        </details>
+        <h3>代表性专利</h3>
+        <ol class="compact-list" start="29">
+          <li>第一发明人，一种S、C和X波段柔性透明电磁混淆超材料隐身装置，国家发明专利，CN113540812B.</li>
+          <li>第一发明人，一种柔性透明超宽带RCS减缩装置，国家发明专利，CN11380507B.</li>
+          <li>第一发明人，太赫兹准光功率合成与放大装置，国家发明专利，CN104701635B</li>
+          <li>第一发明人，由集总元件和二极管构成的有源左手传输线，国家发明专利，CN102522618B.</li>
+          <li>第一发明人，一种集成超表面的太赫兹双频共口径大视场成像装置，国家发明专利,  CN117590556B.</li>
+        </ol>
+        <p>详细论文列表：<a href="https://orcid.org/0000-0002-8213-228X" target="_blank" rel="noopener noreferrer">ORCID · 0000-0002-8213-228X</a></p>
+      </section>
+
+      <section id="projects" aria-labelledby="projects-title">
+        <h2 id="projects-title">部分主持课题</h2>
+        <ol class="compact-list">
+          <li>国家自然科学基金项目：《时空编码超表面涡旋波生成理论与加密通信应用验证》</li>
+          <li>国家自然科学基金项目：《高性能集成太赫兹超表面阵列构筑及电磁波调控机理研究》</li>
+          <li>国家自然科学基金项目：《集成石墨烯的太赫兹有源超材料电磁特性及可控功能器件研究》</li>
+          <li>中央高校基本科研业务专项：《大模型智能体驱动的复杂电磁超材料认知与创制》</li>
+          <li>北京市自然科学基金：《面向6G移动通信的智能超表面阵列关键技术研究》</li>
+          <li>国家市场监督管理总局基础加强专项：《超材料增强太赫兹与红外探测器性能研究》</li>
+          <li>毫米波国家重点实验室开放课题：《信息超表面通信与感知系统研究》</li>
+          <li>河北省自然科学基金：《多模态超表面智能电磁控制机理与应用研究》</li>
+          <li>GF项目：《XXXX太赫兹XXXX》</li>
+          <li>GF项目：《XXXX超高斯波束天线XXXX》</li>
+          <li>GF项目：《XXXX波段XXXX》</li>
+          <li>GF项目：《XXX RCS近远场变换XXXX》</li>
+          <li>GF项目：《XXXX太赫兹天饲馈XXXX》</li>
+          <li>GF项目：《XXXX人工智能算法XXXX》</li>
+          <li>GF项目：《XXXX隐身技术XXXX》</li>
+          <li>GF项目：《XXXX约瑟夫森结微波器件XXXX》</li>
+          <li>教育部供需对接就业育人项目——重点领域校企合作项目：《集成电路创新拔尖人才校企协同育人机制探索》</li>
+          <li>教育部产学合作协同育人项目：《面向集成电路多类型人才培养的创新创业与实践》</li>
+          <li>教育部产学合作协同育人项目：《面向集成电路与电子领域的复合型拔尖人才培养体系探索》</li>
+          <li>教育部产学合作协同育人项目：《电磁场与电磁波虚拟仿真实验室改革与建设》</li>
+          <li>北京高等教育本科教学改革创新项目：《集成电路本研贯通卓越工程师领军人才培养体系探索与实践》</li>
+          <li>北京市高等教育学会“人工智能+”教材建设专项攻关课题：《面向智能电磁空间的人工智能电磁场与电磁波教材与教学体系构建》</li>
+          <li>企事业单位、研究院所横向项目若干等</li>
+        </ol>
+        <details class="funding">
+          <summary>科研成果致谢</summary>
+          <p>[中文]国家自然科学基金 (批准号: 62571049、62271056、62201037、62171186)、中央高校基本科研业务专项资金资助（批准号：2026CX11005）、国家市场监督管理总局专项（批准号：AKYKF2423）、北京市自然科学基金-海淀原始创新联合基金（批准号：L222042）、河北省自然科学基金（批准号：F2025105029）、毫米波国家重点实验室开放课题（批准号: KN20250214）、高等学校学科科研创新引智计划项目（批准号：B14010）资助的课题。</p>
+          <p>[英文] This work was supported by the National Natural Science Foundation of China (Grants nos. 62571049, 62271056, 62171186, and 62201037), the Fundamental Research Funds for the Central Universities (Grant no. 2026CX11005), the Beijing Natural Science Foundation of China-Haidian Original Innovation Joint Fund (Grant no. L222042), the Hebei Natural Science Foundation (Grant no. F2025105029), the Open Research Fund of State Key Laboratory of Millimeter Waves (Grant no. KN20250214), and the 111 Project of China (Grant no. B14010).</p>
+        </details>
+      </section>
+
+      <section id="awards" aria-labelledby="awards-title">
+        <h2 id="awards-title">荣誉奖励</h2>
+        <ol class="compact-list">
+          <li>2026年中国电子学会电子信息教学成果大赛二等奖“产学研深度融合集成电路拔尖创新人才培养体系创新与实践”</li>
+          <li>2026年北京市大学生集成电路设计竞赛二等奖指导教师</li>
+          <li>2025年指导学生荣获全国天线年会学生优秀论文奖“太赫兹双频段大视场共口径透镜天线设计”</li>
+          <li>2025荣获全国大学生集成电路创新创业大赛优秀组织教师奖</li>
+          <li>2025荣获全国大学生集成电路创新创业大赛优秀指导教师</li>
+          <li>2025年荣获北京理工大学教学成果一等奖“胸怀大局、协同育人、创新包容大类培养书院学院协同育人机制探索与实践”</li>
+          <li>2025年荣获北京理工大学第三届教师教学创新大赛二等奖</li>
+          <li>2024年荣获北京理工大学“我爱我师”最受学生喜爱教师</li>
+          <li>2024年荣获北京高校优质本科教案课件“电磁场与电磁波”</li>
+          <li>2024年指导研究生荣获北京市优秀毕业生</li>
+        </ol>
+        <details>
+          <summary>展开更多荣誉奖励（第11—28项）</summary>
+          <ol class="compact-list" start="11">
+          <li>2024年荣获北京理工大学教学名师</li>
+          <li>2024年荣获北京理工大学教学成果特等奖“集成电路卓越工程师领军人才本研贯通产教融合一体化培养模式研究与实践”</li>
+          <li>2024年荣获北京理工大学教学成果一等奖“传承红色基因，成就国之大者’集成电路多元化拔尖创新人才培养体系探索与实践”</li>
+          <li>2024年荣获北京理工大学教学成果二等奖“拓视野贯通培养领军人才：王小谟英才班培养建设探索与实践”</li>
+          <li>2023年荣获北京理工大学微波信息优秀教师奖一等奖</li>
+          <li>2023年荣获北京理工大学迪文优秀教师奖</li>
+          <li>2023年荣获北京理工大学本科生毕业设计（论文）重点项目指导教师（优秀本科毕设）</li>
+          <li>2022年指导研究生荣获北京市优秀毕业生</li>
+          <li>2022年北京市大学生集成电路设计竞赛一等奖指导教师</li>
+          <li>2021年荣获北京理工大学教学成果二等奖“以电子信息类创新人才培养为牵引的海峡两岸文化交流实践”</li>
+          <li>2020年指导学生荣获全国太赫兹科学技术与应用学术交流会优秀论文奖</li>
+          <li>2019年荣获北京理工大学优秀硕士毕业论文指导教师</li>
+          <li>2018年荣获北京理工大学优秀硕士毕业论文指导教师</li>
+          <li>2017年荣获北京理工大学信息与电子学院优秀共产党员</li>
+          <li>2016年荣获北京理工大学优秀硕士毕业论文指导教师</li>
+          <li>2015年获荣获北京理工大学理工雷科教学贡献奖</li>
+          <li>2014年荣获北京理工大学优秀硕士毕业论文指导教师</li>
+          <li>学生期间荣获国家奖学金、北京理工大学徐特立奖学金、优秀博士论文育苗基金、优秀研究生标兵、 CASC奖学金、T-more奖学金、 “五四”学术科技奖等。</li>
+          </ol>
+        </details>
+      </section>
+
+      <section id="services" aria-labelledby="services-title">
+        <h2 id="services-title">学术兼职</h2>
+        <ol class="compact-list">
+          <li>美国电气电子工程师学会高级会员(IEEE Senior Member)</li>
+          <li>中国电子学会(CIE)高级会员</li>
+          <li>中国通信学会(CIC)高级会员</li>
+          <li>中国通信学会智能超表面专业委员会副主任委员</li>
+          <li>中国计量测试学会电子计量专业委员会副主任委员</li>
+          <li>全国无线电计量技术委员会委员</li>
+          <li>中国超材料学会理事</li>
+          <li>全国人工智能计量协同创新生态伙伴联盟理事会理事</li>
+          <li>智能超表面技术联盟理事</li>
+        </ol>
+        <details>
+          <summary>展开更多学术兼职（第10—40项）</summary>
+          <ol class="compact-list" start="10">
+          <li>国家自然科学基金评审专家</li>
+          <li>教育部学科评议组成员</li>
+          <li>教育部学位中心评审专家</li>
+          <li>全国研究生教育评估监测专家库专家</li>
+          <li>北京市科委科技专家</li>
+          <li>北京市自然科学基金评审专家</li>
+          <li>河北省自然科学基金评审专家</li>
+          <li>江苏省自然科学基金评审专家</li>
+          <li>浙江省自然科学基金评审专家</li>
+          <li>中国电子学会科学技术奖评审专家</li>
+          <li>浙江省教学成果奖评审专家</li>
+          <li>广西省教学成果奖评审专家</li>
+          <li>中国电子学会电磁频谱学术大会编委与分论坛主席</li>
+          <li>中国通信学会服务国家战略专项专家委员</li>
+          <li>中国计量测试学会碳足迹研究领域专家库专家</li>
+          <li>北京长城计量测试技术研究所特聘研究员</li>
+          <li>北京理工大学本科专业责任教授</li>
+          <li>北京理工大学工程硕博士学位评定分委会委员</li>
+          <li>SCI期刊《Electronics》编委</li>
+          <li>SCI期刊《International Journal of Optics》编委</li>
+          <li>SCI期刊《Microstructures》青年编委</li>
+          <li>《科技导报》编委</li>
+          <li>《遥测遥控》编委</li>
+          <li>《天线学报》编委</li>
+          <li>《计测技术》青年编委</li>
+          <li>《哈尔滨工业大学学报》青年编委</li>
+          <li>SCI期刊《IET Microwaves, Antennas &amp; Propagation》专刊主编“Antenna Integration and Miniaturization Techniques”</li>
+          <li>SCI期刊《Nanomaterials》专刊主编“Metamaterials and Metasurfaces for Advanced Electromagnetic Wave Manipulation and Applications”</li>
+          <li>中文核心期刊《哈尔滨工业大学学报》专题主编“人工智能电磁科学与技术”</li>
+          <li>中文核心期刊《科技导报》专题主编“智能电磁控制”</li>
+          <li>国内外著名期刊审稿专家，如IEEE TMTT, IEEE TAP, IEEE AWPL, IEEE MWCL, IEEE PTL, IEEE PJ, AM, AFM, LPR, AOM, APL, JAP, OE, OL, MOTL, EL, 科技导报、物理学报、电子学报、雷达学报、系统工程与电子技术、北京理工大学学报、哈尔滨工业大学学报、上海交通大学学报等</li>
+          </ol>
+        </details>
+      </section>
+
+      <section id="recruitment" aria-labelledby="recruitment-title">
+        <h2 id="recruitment-title">招生与招聘</h2>
+        <div class="note">
+          <p>欢迎本科生参与科研和毕设，长期招收硕士研究生、博士研究生、博士后、科研助理和教职。</p>
+          <p>Interested applicants are cordially invited to submit their full CV via email to Prof. Liming Si (<a href="mailto:lms@bit.edu.cn">lms@bit.edu.cn</a>).</p>
+        </div>
+      </section>
+
+        <p class="source">本页根据<a href="https://ice.bit.edu.cn/szdw/jsfc/05afa698bf7342298c646d9d4fcdb04b.htm" target="_blank" rel="noopener noreferrer">北京理工大学学院教师介绍</a>整理，资料整理日期：2026年11月20日。内容以学院原网页及实际更新为准。本页面为独立整理版本。</p>
+      </main>
+    </div>
+    <footer>司黎明 · 北京理工大学　<a href="#top">返回顶部 ↑</a></footer>
+  </div>
 </body>
 </html>
