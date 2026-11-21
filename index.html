@@ -17,13 +17,13 @@
     a:focus-visible, summary:focus-visible { outline:2px solid var(--accent); outline-offset:4px; }
     .skip { position:absolute; top:-80px; left:20px; padding:7px 14px; background:white; z-index:5; }
     .skip:focus { top:8px; }
-    .topbar { background:var(--ink); color:white; }
+    /*.topbar { background:var(--ink); color:white; }*/
+    .topbar {    position: sticky;    top: 0;    z-index: 9999;    background: var(--ink);    color: white;    width: 100%;}
     .topbar-inner { max-width:1200px; margin:auto; padding:13px 32px; display:flex; justify-content:space-between; gap:20px; align-items:center; }
     .school { font-size:15px; letter-spacing:1px; font-weight:600; }
     .school small { display:block; font-size:10px; font-weight:400; letter-spacing:1px; opacity:.75; line-height:1.4; }
     .topbar a { color:#e7f0ea; font-size:15px; }
     /* masthead{height:auto;background:#fff;border-bottom:1px solid var(--line)} */
-    .masthead{    position:sticky;    top:0;    z-index:1000;    height:auto;    background:rgba(255,255,255,.97);    border-bottom:1px solid var(--line);    box-shadow:0 2px 8px rgba(23,54,93,.06);    backdrop-filter:saturate(180%) blur(10px);    -webkit-backdrop-filter:saturate(180%) blur(10px);}
     .page {  max-width:1200px;  margin:auto;  padding:0 32px;}
     .hero {  background:linear-gradient(    110deg,    #EAF1F8 0%,    #F5F8FC 48%,    #FFFFFF 100%  );  border:1px solid var(--line);  border-top:0;  display:grid;  grid-template-columns:172px minmax(0,1fr);  gap:36px;  padding:38px 42px;  align-items:center;}    .portrait { position:relative; width:172px; height:218px; background:#e8efea; display:grid; place-items:center; overflow:hidden; }
     .portrait span { color:#789187; font-size:38px; font-family:serif; letter-spacing:4px; }
